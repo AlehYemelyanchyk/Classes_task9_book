@@ -1,3 +1,5 @@
+package by.epam.ayem.module4;
+
 /*9. Создать класс Book, спецификация которого приведена ниже. Определить конструкторы, set- и get- методы и
 метод toString(). Создать второй класс, агрегирующий массив типа Book, с подходящими конструкторами и методами.
 Задать критерии выбора данных и вывести эти данные на консоль.
@@ -7,19 +9,16 @@
         b) список книг, выпущенных заданным издательством;
         с) список книг, выпущенных после заданного года.*/
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Library {
 
-    private List<Book> books;
+    private Book[] books;
 
     public Library() {
-        this.books = new ArrayList<>();
+        this.books = new Book[8];
     }
 
     public void addBook(int id, String title, String author, String publisher, int year, int pages, int price, String coverType) {
-        books.add(new Book(id, title, author, publisher, year, pages, price, coverType));
+        books[id] = new Book(id, title, author, publisher, year, pages, price, coverType);
     }
 
     public void printBooksByAuthor(String author) {
@@ -47,7 +46,7 @@ public class Library {
     }
 
     public void printBookInfo(int id) {
-        books.get(id - 1).toString();
+        books[id-1].toString();
     }
 
 }
